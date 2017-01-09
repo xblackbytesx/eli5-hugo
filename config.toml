@@ -1,0 +1,7 @@
+languageCode = "en-us"
+title = "Fabio's N00B Guides"
+baseurl = "http://example.org/"
+
+[Params]
+  Author = "Fabio Bier"
+  disqusShortname = "xblackbytesx"
