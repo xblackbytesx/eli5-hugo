@@ -1,7 +1,7 @@
 +++
-date = "2017-01-09T23:42:23+01:00"
+date = "2017-01-10T00:14:35+01:00"
 title = "arch linux n00b guide"
-draft = true
+draft = false
 
 +++
 
