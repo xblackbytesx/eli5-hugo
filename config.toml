@@ -1,6 +1,6 @@
 languageCode = "en-us"
 title = "Fabio's N00B Guides"
-baseurl = "https://xblackbytesx/github.io/eli5/"
+baseurl = "https://xblackbytesx.github.io/eli5/"
 
 [Params]
   Author = "Fabio Bier"
