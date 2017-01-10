@@ -2,6 +2,8 @@
 date = "2017-01-10T00:14:35+01:00"
 title = "arch linux n00b guide"
 draft = false
+categories = ["Linux"]
+series = ["Install guides"]
 
 +++
 

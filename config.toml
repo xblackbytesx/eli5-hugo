@@ -2,6 +2,26 @@ languageCode = "en-us"
 title = "Explain IT Like I'm 5"
 baseurl = "http://eli5.it/"
 
+[[menu.main]]
+  name   = "Linux"
+  url    = "/categories/linux"
+  weight = 0
+  pre    = ""
+[[menu.main]]
+  name   = "Install Guides"
+  url    = "/series/install guides"
+  weight = 0
+  pre    = ""
+
 [Params]
   Author = "Fabio Bier"
   disqusShortname = "xblackbytesx"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+[social]
+  twitter = "xblackbytesx"
+  github  = "xblackbytesx"
