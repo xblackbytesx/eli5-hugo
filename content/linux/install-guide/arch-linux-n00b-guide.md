@@ -7,6 +7,8 @@ series = ["Install guides"]
 
 +++
 
+![Arch Linux](/img/arch-linux-desktop.png)
+
 ## Prerequisites
 ### Check internet connection
 ```
