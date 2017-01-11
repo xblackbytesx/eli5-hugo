@@ -12,6 +12,11 @@ baseurl = "http://eli5.it/"
   url    = "/series/install guides"
   weight = 0
   pre    = ""
+[[menu.main]]
+  name   = "Tooling"
+  url    = "/categories/tooling"
+  weight = 0
+  pre    = ""
 
 [Params]
   Author = "Fabio Bier"
