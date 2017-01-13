@@ -347,7 +347,12 @@ sudo pacman -S arc-gtk-theme
 
 Install some awesome packages
 ```
-sudo pacman -S file-roller firefox nodejs npm vlc keepass vim git xdotool xsel
+sudo pacman -S file-roller firefox nodejs npm vlc keepass vim git
+```
+
+Install some support libraries
+```
+sudo pacman -S xdotool xsel udisks dosfstools
 ```
 
 ---
