@@ -347,7 +347,7 @@ sudo pacman -S arc-gtk-theme
 
 Install some awesome packages
 ```
-sudo pacman -S file-roller firefox vlc keepass vim git
+sudo pacman -S file-roller firefox vlc keepass vim git jdk8-openjdk
 ```
 
 Install node version manager for NodeJS
