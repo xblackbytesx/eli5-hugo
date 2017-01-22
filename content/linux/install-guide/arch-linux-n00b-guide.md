@@ -243,7 +243,7 @@ bootctl install
 
 Write long UUID to file for later use
 ```
-blkid | grep sda2 | cut -f2 -d\" &gt; /boot/loader/entries/arch.conf
+blkid | grep sda2 | cut -f2 -d\" > /boot/loader/entries/arch.conf
 ```
 
 Create an entry for Arch
@@ -347,12 +347,22 @@ sudo pacman -S arc-gtk-theme
 
 Install some awesome packages
 ```
-sudo pacman -S file-roller firefox nodejs npm vlc keepass vim git
+sudo pacman -S file-roller firefox vlc keepass vim git
+```
+
+Install node version manager for NodeJS
+```
+yaourt -S nvm
 ```
 
 Install some support libraries
 ```
-sudo pacman -S xdotool xsel udisks dosfstools
+sudo pacman -S xdotool xsel udisks dosfstools exfat-utils
+```
+
+Enable media codecs
+```
+sudo pacman -S gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 ```
 
 ---
@@ -367,7 +377,7 @@ sudo pacman -S xf86-video-intel
 ## After install stuff [Optional]:
 
 ### Terminal preference
-See the `zsh n00b guide`
+See the [zsh n00b guide](http://eli5/linux/tooling/zsh)
 
 
 ### Auto mounting of `/media/data` and `/media/games`.
