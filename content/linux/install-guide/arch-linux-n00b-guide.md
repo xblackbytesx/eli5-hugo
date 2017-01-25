@@ -377,7 +377,7 @@ sudo pacman -S xf86-video-intel
 ## After install stuff [Optional]:
 
 ### Terminal preference
-See the [zsh n00b guide](http://eli5/linux/tooling/zsh)
+See the [zsh n00b guide](http://eli5.it/linux/tooling/zsh)
 
 
 ### Auto mounting of `/media/data` and `/media/games`.
