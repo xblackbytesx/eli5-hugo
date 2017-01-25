@@ -6,9 +6,6 @@ categories = ["Linux","Tooling"]
 
 +++
 
-# ZSH n00b guide
-**A n00b guide for ZSH**
-
 ## Install and switch to ZSH
 ```
 sudo pacman -S zsh zsh-completions
@@ -19,9 +16,37 @@ Run it once to configure the default settings.
 zsh
 ```
 
+
+## Install Antigen for advanced plugin management
+```
+yaourt -S antigen-git
+```
+Add the following source to your `~/.zshrc` file:  
+`source /usr/share/zsh/scripts/antigen/antigen.zsh`
+
+Add some awesome plugins like Git support and Syntax hightlighting
+```
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme af-magic
+
+# Tell antigen that you're done.
+antigen apply
+
+```
+
+
 Play around with it and if you like it set as default shell for your user.
 ```
-chsh -s
+chsh -s $(which zsh)
 ```
 
 
@@ -31,16 +56,4 @@ Make ZSH look for a .aliases file.
 ```
 echo '' >> .zshrc
 echo 'source $HOME/.aliases' >> .zshrc
-```
-
-Add this awesomely useful alias.
-```
-echo 'alias ll="ls -al"' >> .aliases
-```
-
-## Nice colors and vanity prompt style
-```
-echo '' >> ~/.zshrc
-echo 'autoload -U colors && colors' >> ~/.zshrc
-echo 'PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$reset_color%}"in" %{$fg[yellow]%}%~ %{$reset_color%}%% "' >> ~/.zshrc
 ```
