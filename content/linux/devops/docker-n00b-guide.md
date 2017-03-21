@@ -5,12 +5,10 @@ draft = false
 
 +++
 
-Docker n00b guide
-
-# Installation:
+## Installation:
 `sudo pacman -S docker docker-compose`
 
-# Start deamon
+## Start deamon
 `sudo systemctl start docker`  
 `sudo systemclt enable docker`
 
@@ -25,7 +23,7 @@ uwsgi.ini
 uwsgi_params
 ssh dir with private key -->
 
-# Common commands
+## Common commands
 
 ### Build a container
 `sudo docker build -t <docker_name> .`  
@@ -71,6 +69,6 @@ Example /start_app_with_docker.sh
 `    -p 0.0.0.0:81:80 \`  
 `    <user>/styleguide-example` -->
 
-# Removing cruft
+## Removing cruft
 `sudo docker rm $(sudo docker ps -a)`  
 `sudo docker rmi $(sudo docker images -q)`

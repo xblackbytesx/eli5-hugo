@@ -6,8 +6,6 @@ categories = ["Android"]
 
 +++
 
-# Life without Gapps
-
 ## Guesture typing
 In order to enjoy guesture typing with the AOSP keyboard you need to copy two (proprietary) libs into your `system/lib64`. This is if you're actually on a arm64 enabled device of course, otherwise you copy it to `system/lib`
 
