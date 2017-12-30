@@ -1,3 +1,4 @@
+theme = "darkdoc"
 languageCode = "en-us"
 title = "Explain IT Like I'm 5"
 baseurl = "http://eli5.it/"
