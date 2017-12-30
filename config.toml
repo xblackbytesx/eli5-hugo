@@ -2,6 +2,8 @@ theme = "darkdoc"
 languageCode = "en-us"
 title = "Explain IT Like I'm 5"
 baseurl = "http://eli5.it/"
+author = "Fabio Bier"
+copyright = "Creative Commons International 4.0"
 
 [[menu.main]]
   name   = "Linux"
