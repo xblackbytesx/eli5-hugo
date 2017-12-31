@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Explain IT Like I'm 5"
 baseurl = "http://eli5.it/"
 author = "Fabio Bier"
-copyright = "Creative Commons International 4.0"
+copyright = "Creative Commons Attribution 4.0 International"
 
 [[menu.main]]
   name   = "Linux"
