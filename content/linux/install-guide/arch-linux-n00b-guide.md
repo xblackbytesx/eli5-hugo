@@ -228,15 +228,14 @@ pacman -S bash-completion
 Install packages for WiFi:
 ```
 pacman -S dialog wpa_supplicant wpa_actiond rfkill
+```
+
+```
 ip link
 systemctl enable netctl-auto@wlp2s0b1
 ```
 
 Installing the bootloader:
-```
-mount -t efivarfs efivarfs /sys/firmware/efi/efivars
-```
-
 ```
 bootctl install
 ```
@@ -306,7 +305,7 @@ sudo pacman -S xf86-input-synaptics
 Install graphics driver and display server
 ```
 sudo pacman -S mesa
-sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg-twm xorg-xclock
+sudo pacman -S xorg-server xorg-xinit xorg-twm xorg-xclock
 ```
 
 ### Installing and enabling a Firewall
@@ -333,8 +332,7 @@ sudo ufw allow 22
 
 ### Install awesome GUI stuff
 ```
-sudo pacman -S gnome
-sudo pacman -S gdm
+sudo pacman -S gnome gdm
 sudo systemctl enable gdm.service
 sudo pacman -S gnome-tweak-tool gnome-keyring
 sudo pacman -S yaourt
@@ -348,22 +346,21 @@ sudo systemctl enable NetworkManager.service
 
 Install some funky themes
 ```
-sudo pacman -S arc-gtk-theme
+yaourt -S adapta-gtk-theme-git la-capitaine-icon-theme
 ```
 
 Install some awesome packages
 ```
-sudo pacman -S file-roller firefox vlc keepass vim git jdk8-openjdk
+sudo pacman -S file-roller vlc vim git jdk8-openjdk
 ```
 
-Install node version manager for NodeJS
 ```
-yaourt -S nvm
+yaourt -S chrome-gnome-shell-git firefox-nightly keepassxc-git
 ```
 
 Install some support libraries
 ```
-sudo pacman -S xdotool xsel udisks dosfstools exfat-utils
+sudo pacman -S xdotool xsel udisks2 dosfstools exfat-utils
 ```
 
 Enable media codecs
@@ -413,9 +410,4 @@ UUID=<your-uuid> /media/games ntfs-3g defaults,discard 0 1
 ### Installing steam native runtime:
 ```
 sudo pacman -S steam steam-native-runtime
-```
-
-### Link Keepass plugins:
-```
-sudo cp .mozilla/firefox/5i95pb8t.default/extensions/keefox@chris.tomlinson/deps/KeePassRPC.plgx /usr/share/keepass/Plugins/
 ```
