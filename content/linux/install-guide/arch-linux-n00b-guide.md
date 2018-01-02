@@ -1,6 +1,6 @@
 +++
 date = "2017-01-10T00:14:35+01:00"
-lastMod = "2018-01-01T00:14:35+01:00"
+lastMod = "2018-01-02T00:15:13+01:00"
 title = "arch linux n00b guide"
 draft = false
 categories = ["Linux"]
@@ -37,7 +37,7 @@ timedatectl status
 ```
 
 ### Partitioning
-**TIP:** Leave a 128MiB empty ‘gap’ partition in between your ‘other os’ and your new partition.
+**TIP:** If dual-booting leave a 128MiB empty ‘gap’ partition in between your ‘other os’ and your new partition.
 
 #### Zap all data on disk and create a new GPT table.
 Show current partition table
@@ -231,9 +231,13 @@ Install packages for WiFi:
 pacman -S dialog wpa_supplicant wpa_actiond rfkill
 ```
 
+Find and enable your wireless-interface
 ```
 ip link
-systemctl enable netctl-auto@wlp2s0b1
+```
+
+```
+systemctl enable netctl-auto@<YOUR_INTERFACE>
 ```
 
 Installing the bootloader:
@@ -297,16 +301,26 @@ umount -R /mnt
 reboot
 ```
 
-On laptops with touchpad:
+Congratulations! You are now booted into your new Arch system. As you've noticed things are a little 'texty' out here. Let's add some paint.
 
+---
+
+### Install a graphics driver and display server
+```
+sudo pacman -S mesa xorg-server xorg-xinit xorg-twm xorg-xclock
+```
+
+On laptops with touchpad:
 ```
 sudo pacman -S xf86-input-synaptics
 ```
 
-Install graphics driver and display server
+### Install awesome GUI stuff
 ```
-sudo pacman -S mesa
-sudo pacman -S xorg-server xorg-xinit xorg-twm xorg-xclock
+sudo pacman -S gnome gdm
+sudo systemctl enable gdm.service
+sudo pacman -S gnome-tweak-tool gnome-keyring
+sudo pacman -S yaourt
 ```
 
 ### Installing and enabling a Firewall
@@ -318,39 +332,33 @@ sudo ufw enable
 ### Installing and enabling OpenSSH-Server
 ```
 sudo pacman -S openssh
+```
+
+```
 sudo systemctl start sshd.socket
 ```
 
-#### If you want to have SSH running as as service run this
 ```
 sudo systemctl enable sshd.socket
 ```
 
-#### If needed make sure the SSH connection get's through the Firewall
+If needed make sure the SSH connection get's through the Firewall
 ```
 sudo ufw allow 22
 ```
 
-### Install awesome GUI stuff
-```
-sudo pacman -S gnome gdm
-sudo systemctl enable gdm.service
-sudo pacman -S gnome-tweak-tool gnome-keyring
-sudo pacman -S yaourt
-```
-
-Enable NetworkManager
+### Enable NetworkManager
 ```
 sudo pacman -S networkmanager  
 sudo systemctl enable NetworkManager.service
 ```
 
-Install some funky themes
+### Install some funky themes
 ```
 yaourt -S adapta-gtk-theme-git la-capitaine-icon-theme
 ```
 
-Install some awesome packages
+### Install some awesome packages
 ```
 sudo pacman -S file-roller vlc vim git jdk8-openjdk
 ```
@@ -359,24 +367,15 @@ sudo pacman -S file-roller vlc vim git jdk8-openjdk
 yaourt -S chrome-gnome-shell-git firefox-nightly keepassxc-git
 ```
 
-Install some support libraries
+### Install some support libraries
 ```
-sudo pacman -S xdotool xsel udisks2 dosfstools exfat-utils
+sudo pacman -S xdotool xsel udisks2 dosfstools exfat-utils ntfs-3g
 ```
 
 Enable media codecs
 ```
 sudo pacman -S gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 ```
-
----
-
-## Macbook Specific:
-```
-sudo pacman -S xf86-video-intel
-```
-
----
 
 ## After install stuff [Optional]:
 
@@ -387,19 +386,14 @@ See the [zsh n00b guide](http://eli5.it/linux/tooling/zsh)
 ### Auto mounting of `/media/data` and `/media/games`.
 First make the folders to mount to:
 ```
-Sudo mkdir -p /media/data
-Sudo mkdir -p /media/games
+sudo mkdir -p /media/data
+sudo mkdir -p /media/games
 ```
 
 #### Find the proper UUIDs:
 ```
 sudo blkid | grep sdb1  
 sudo blkid | grep sdc1
-```
-
-#### Install neccesary filesystem drivers if needed:
-```
-sudo pacman -S ntfs-3g
 ```
 
 #### Then add the UUID of desired drive to the fstab like so:
@@ -412,3 +406,14 @@ UUID=<your-uuid> /media/games ntfs-3g defaults,discard 0 1
 ```
 sudo pacman -S steam steam-native-runtime
 ```
+
+---
+
+## Device specific steps
+
+### Macbook video driver:
+```
+sudo pacman -S xf86-video-intel
+```
+
+---
