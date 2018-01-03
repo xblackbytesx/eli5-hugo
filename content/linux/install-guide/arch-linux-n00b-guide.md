@@ -1,6 +1,6 @@
 +++
 date = "2017-01-10T00:14:35+01:00"
-lastMod = "2018-01-02T00:15:13+01:00"
+lastMod = "2018-03-02T00:23:22+01:00"
 title = "arch linux n00b guide"
 draft = false
 categories = ["Linux"]
@@ -372,9 +372,9 @@ yaourt -S chrome-gnome-shell-git firefox-nightly keepassxc-git
 sudo pacman -S xdotool xsel udisks2 dosfstools exfat-utils ntfs-3g
 ```
 
-Enable media codecs
+Enable minimal media codecs
 ```
-sudo pacman -S gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
+sudo pacman -S gstreamer gst-plugins-good gst-plugins-ugly
 ```
 
 ## After install stuff [Optional]:
@@ -409,11 +409,22 @@ sudo pacman -S steam steam-native-runtime
 
 ---
 
-## Device specific steps
+## Device specifics and troubleshooting
 
 ### Macbook video driver:
 ```
 sudo pacman -S xf86-video-intel
 ```
 
----
+### Use NetworkManager instead of netctl
+During installation we enabled the netctl-auto configuration in order to have access to wireless internet post-install. This is because life after install is just a terminal prompt. After installing a GUI though you probably would like to start using a graphical network manager. In this case we're going to assume you installed GNOME.
+
+```
+sudo systemctl disable netctl-auto@<YOUR_INTERFACE>.service
+```
+
+```
+sudo systemctl enable NetworkManager.service
+```
+
+Simply reboot and enjoy your new NetworkManager
