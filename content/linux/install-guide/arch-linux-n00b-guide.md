@@ -1,6 +1,6 @@
 +++
 date = "2017-01-10T00:14:35+01:00"
-lastMod = "2018-03-02T00:23:22+01:00"
+lastMod = "2018-01-03T00:23:22+01:00"
 title = "arch linux n00b guide"
 draft = false
 categories = ["Linux"]
