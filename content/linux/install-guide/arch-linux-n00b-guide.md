@@ -364,7 +364,11 @@ sudo pacman -S file-roller vlc vim git jdk8-openjdk
 ```
 
 ```
-yaourt -S chrome-gnome-shell-git firefox-nightly keepassxc-git
+yaourt -S chrome-gnome-shell-git keepassxc-git
+```
+
+```
+firefox-nightly inox
 ```
 
 ### Install some support libraries
