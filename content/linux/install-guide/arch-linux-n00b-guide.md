@@ -349,7 +349,7 @@ sudo ufw allow 22
 
 ### Enable NetworkManager
 ```
-sudo pacman -S networkmanager  
+sudo pacman -S networkmanager networkmanager-openvpn
 sudo systemctl enable NetworkManager.service
 ```
 
@@ -379,6 +379,12 @@ sudo pacman -S xdotool xsel udisks2 dosfstools exfat-utils ntfs-3g
 Enable minimal media codecs
 ```
 sudo pacman -S gstreamer gst-plugins-good gst-plugins-ugly
+```
+
+### Install some nifty little package installers (Flatpak vs Snap.. FIGHT!)
+```
+sudo pacman -S flatpak  
+yaourt -S snapd
 ```
 
 ## After install stuff [Optional]:
