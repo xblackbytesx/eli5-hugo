@@ -1,5 +1,6 @@
 +++
 date = "2017-03-21T16:03:03+01:00"
+lastMod = "2018-01-04T10:49:03+01:00"
 title = "docker n00b guide"
 draft = false
 
@@ -8,9 +9,15 @@ draft = false
 ## Installation:
 `sudo pacman -S docker docker-compose`
 
+## Add yourself to the docker group:
+`sudo gpasswd -a <USER> docker`
+
+WARNING: Every user you add to the `docker` group is root equivalent.  
+NOTE: It takes a reboot for this change to take effect.
+
 ## Start deamon
-`sudo systemctl start docker`  
-`sudo systemclt enable docker`
+`sudo systemctl start docker.service`  
+`sudo systemclt enable docker.service`
 
 <!-- # Configuration
 Files you need
@@ -26,21 +33,20 @@ ssh dir with private key -->
 ## Common commands
 
 ### Build a container
-`sudo docker build -t <docker_name> .`  
-`sudo service docker start`  
-`sudo docker run -d -P <docker_name>`
+`docker build -t <docker_name> .`  
+`docker run -d -P <docker_name>`
 
 OPTIONAL - Name your own docker instance name:
 sudo docker run -d --name <instance_name> -p 81:80 <docker_name>
 
 ### Show Docker instances with names
-`sudo docker ps`
+`docker ps`
 
 ### Open the bash shell
-`sudo docker exec -it <instance_name> bash`
+`docker exec -it <instance_name> bash`
 
 ### Stop Docker instance
-`sudo docker stop <instance_name>`
+`docker stop <instance_name>`
 
 <!-- # Publishing -->
 
@@ -70,5 +76,5 @@ Example /start_app_with_docker.sh
 `    <user>/styleguide-example` -->
 
 ## Removing cruft
-`sudo docker rm $(sudo docker ps -a)`  
-`sudo docker rmi $(sudo docker images -q)`
+`docker rm $(sudo docker ps -a)`  
+`docker rmi $(sudo docker images -q)`

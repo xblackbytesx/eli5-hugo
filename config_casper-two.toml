@@ -1,24 +1,23 @@
 baseurl         = "/"
-theme           = "hugo-casper-two"
+theme           = "casper-two"
 languageCode    = "en-US"
-disqusShortname = ""
+disqusShortname = "xblackbytesx"
 paginate        = 6
 #SectionPagesMenu = "main"
 
 [params]
-  title       = "Hugo Casper Two"
-  subtitle    = "Port of Casper 2.x for Hugo"
+  title = "Explain IT Like I'm 5"
+  subtitle = "Port of Casper 2.x for Hugo"
 
-  cover       = "img/blog-cover.jpg"
+  cover = "img/blog-cover.jpg"
   description = "Here is a description of your site."
   metaDescription = ""
   googleAnalytics = ""
   customCSS = []
   RSSLink = ""
 
-  twitterName = "faketryghost"
-  fbName = "fakeghost"
-  githubName = "eueung"
+  twitterName = "xblackbytesx"
+  githubName = "xblackbytesx"
 
   logo = "hugo-logo.png"
   orgName = "EM"
@@ -37,21 +36,22 @@ paginate        = 6
   post = "/:slug/"
 
 [[menu.main]]
-  name = "Home"
-  url = "/"
-  weight = 200
-
+  name   = "Linux"
+  url    = "/categories/linux"
+  weight = 0
+  pre    = ""
 [[menu.main]]
-  name = "Go"
-  url = "/tags/golang/"
-  weight = 100
-
+  name   = "Install Guides"
+  url    = "/series/install guides"
+  weight = 0
+  pre    = ""
 [[menu.main]]
-  name = "Food"
-  url = "/categories/food/"
-  weight = 99
+  name   = "Tooling"
+  url    = "/categories/tooling"
+  weight = 0
+  pre    = ""
 
-[[menu.main]]
-  name = "External"
-  url = "https://google.com/"
-  weight = 95
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"

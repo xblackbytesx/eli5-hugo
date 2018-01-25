@@ -355,7 +355,7 @@ sudo systemctl enable NetworkManager.service
 
 ### Install some funky themes
 ```
-yaourt -S adapta-gtk-theme-git la-capitaine-icon-theme
+yaourt -S adapta-gtk-theme-git paper-icon-theme-git
 ```
 
 ### Install some awesome packages

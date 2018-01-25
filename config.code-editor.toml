@@ -1,13 +1,14 @@
 baseurl = "http://eli5.it/"
 languageCode = "en-US"
 title = "Explain IT Like I'm 5"
-theme = "darkdoc"
+theme = "code-editor"
 
 author = "Fabio Bier"
 copyright = "Creative Commons Attribution 4.0 International"
 
-[Params]
-  Author = "Fabio Bier"
+[params]
+  author = "Fabio Bier"
+  locale = "en-US"
   disqusShortname = "xblackbytesx"
 
 [[menu.main]]
