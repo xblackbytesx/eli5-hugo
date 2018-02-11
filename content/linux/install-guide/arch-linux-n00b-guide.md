@@ -291,8 +291,8 @@ An example of a complete string of hooks would be:
 `base udev autodetect modconf block filesystems keyboard keymap encrypt lvm2 fsck`
 
 ```
- sudo mkinitcpio -p linux
- ```
+mkinitcpio -p linux
+```
 
 ### Finalize:
 ```
@@ -360,15 +360,16 @@ yaourt -S adapta-gtk-theme-git paper-icon-theme-git
 
 ### Install some awesome packages
 ```
-sudo pacman -S file-roller vlc vim git jdk8-openjdk
+sudo pacman -S file-roller vlc vim git jdk8-openjdk keepassxc inox
+```
+
+#### Add a Mozilla signature in order to build Firefox
+```
+gpg --recv-key 0x61B7B526D98F0353
 ```
 
 ```
-yaourt -S chrome-gnome-shell-git keepassxc-git
-```
-
-```
-firefox-nightly inox
+yaourt -S chrome-gnome-shell-git firefox-nightly
 ```
 
 ### Install some support libraries
