@@ -25,3 +25,8 @@ Specify a specific remote server
 ```
 gpg --keyserver hkps://keyserver.ubuntu.com --send-keys <your_key_uid>
 ```
+
+Exporting your key for orther devices
+```
+gpg --output sec_key.gpg --armor --export-secret-key <your_key_uid>
+```
