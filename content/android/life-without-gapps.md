@@ -1,10 +1,18 @@
 +++
 date = "2017-02-24T21:47:40+01:00"
-title = "life without gapps"
+lastMod = "2018-08-23T00:10:13+01:00"
+title = "[UPDATED] life without gapps"
 draft = false
 categories = ["Android"]
 
 +++
+
+**UPDATE:**
+There is now a much easier way to run Android properly without GAPPS.
+The good folks at microG have created LineageOS builds with integrated microG apps and spoofed signatures.
+Take a look at all the [benefits of this project](https://lineage.microg.org). They build weekly from official LineageOS nightlies.
+
+---
 
 ## Guesture typing
 In order to enjoy guesture typing with the AOSP keyboard you need to copy two (proprietary) libs into your `system/lib64`. This is if you're actually on a arm64 enabled device of course, otherwise you copy it to `system/lib`

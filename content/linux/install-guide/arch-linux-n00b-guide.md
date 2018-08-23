@@ -1,7 +1,7 @@
 +++
 date = "2017-01-10T00:14:35+01:00"
-lastMod = "2018-01-03T00:23:22+01:00"
-title = "arch linux n00b guide"
+lastMod = "2018-08-23T00:10:48+01:00"
+title = "[UPDATED] arch linux n00b guide"
 draft = false
 categories = ["Linux"]
 series = ["Install guides"]
@@ -320,7 +320,13 @@ sudo pacman -S xf86-input-synaptics
 sudo pacman -S gnome gdm
 sudo systemctl enable gdm.service
 sudo pacman -S gnome-tweak-tool gnome-keyring
-sudo pacman -S yaourt
+```
+
+### Installing a AUR helper
+In Arch we have a great asset that is the Arch User Respository (AUR). Here we can find all kinds of user maintained packages that would otherwise be quite hard to install. Using an AUR helper makes installing packages from the AUR as easy as Pacman for instance. Let's install my favorite one, aurman!
+```
+git clone https://github.com/polygamma/aurman.git
+cd aurman && makepkg -si
 ```
 
 ### Installing and enabling a Firewall
@@ -355,7 +361,7 @@ sudo systemctl enable NetworkManager.service
 
 ### Install some funky themes
 ```
-yaourt -S adapta-gtk-theme-git paper-icon-theme-git
+aurman -S adapta-gtk-theme-git paper-icon-theme-git
 ```
 
 ### Install some awesome packages
@@ -369,7 +375,7 @@ gpg --recv-key 0x61B7B526D98F0353
 ```
 
 ```
-yaourt -S chrome-gnome-shell-git firefox-nightly
+aurman -S chrome-gnome-shell-git firefox-nightly
 ```
 
 ### Install some support libraries
@@ -385,7 +391,7 @@ sudo pacman -S gstreamer gst-plugins-good gst-plugins-ugly
 ### Install some nifty little package installers (Flatpak vs Snap.. FIGHT!)
 ```
 sudo pacman -S flatpak  
-yaourt -S snapd
+aurman -S snapd
 ```
 
 ## After install stuff [Optional]:
@@ -439,3 +445,12 @@ sudo systemctl enable NetworkManager.service
 ```
 
 Simply reboot and enjoy your new NetworkManager
+
+---
+
+## DOCUMENT HISTORY:
+***08-23-2018***
+
+- Swapped out `Yaourt` in favor of `Aurman`. It is no longer recommended to use Yaourt as your package manager since it hasn't received updates or security review in a very long time.
+
+- Added document history for transparency sake.
