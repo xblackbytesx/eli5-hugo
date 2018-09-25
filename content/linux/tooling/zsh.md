@@ -1,6 +1,7 @@
 +++
 draft = false
 date = "2017-01-11T11:13:15+01:00"
+lastMod = "2018-09-25T00:14:07+01:00"
 title = "zsh"
 categories = ["Linux","Tooling"]
 
@@ -57,3 +58,34 @@ Make ZSH look for a .aliases file.
 echo '' >> .zshrc
 echo 'source $HOME/.aliases' >> .zshrc
 ```
+
+### Pacman ZSH hook
+Install a Pacman hook to update the mirrorlist to specified criterea upon upgrading the `pacman-mirrorlist` package.
+```
+sudo mkdir -p /etc/pacman.d/hooks
+```
+
+Create a new file in `/etc/pacman.d/hooks/zshupgrade.hook` and paste the following code:
+```
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = zsh
+
+[Action]
+Description = Reload zshrc after upgrade
+When = PostTransaction
+Exec = /usr/bin/env sh -c "/home/<USER>/.zshrc"
+```
+
+Now every time the `zsh` package gets upgraded we reload the zsh shell.
+
+
+---
+
+## DOCUMENT HISTORY:
+***09-25-2018***
+
+- Added useful Pacman hook for refreshing your zsh shell session after `zsh` package update. Credits: [Tead](https://github.com/Tead).
+
+- Added document history for transparency sake.

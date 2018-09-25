@@ -1,6 +1,6 @@
 +++
 date = "2017-01-10T00:14:35+01:00"
-lastMod = "2018-08-23T00:10:48+01:00"
+lastMod = "2018-09-25T00:14:06+01:00"
 title = "[UPDATED] arch linux n00b guide"
 draft = false
 categories = ["Linux"]
@@ -366,7 +366,7 @@ aurman -S adapta-gtk-theme-git paper-icon-theme-git
 
 ### Install some awesome packages
 ```
-sudo pacman -S file-roller vlc vim git jdk8-openjdk keepassxc inox
+sudo pacman -S file-roller vlc vim git keepassxc reflector jdk8-openjdk
 ```
 
 #### Add a Mozilla signature in order to build Firefox
@@ -395,6 +395,30 @@ aurman -S snapd
 ```
 
 ## After install stuff [Optional]:
+
+### Pacman hooks
+Install a Pacman hook to update the mirrorlist to specified criterea upon upgrading the `pacman-mirrorlist` package.
+```
+sudo mkdir -p /etc/pacman.d/hooks
+```
+
+Create a new file in `/etc/pacman.d/hooks/mirrorupgrade.hook` and paste the following code:
+```
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Updating pacman-mirrorlist with reflector and removing pacnew...
+When = PostTransaction
+Depends = reflector
+Exec = /usr/bin/env sh -c "reflector --country 'Netherlands' --latest 10 --protocol https --age 12 --sort rate --save /etc/pacman.d/mirrorlist; if [[ -f /etc/pacman.d/mirrorlist.pacnew ]]; then rm /etc/pacman.d/mirrorlist.pacnew; fi"
+```
+
+Now every time the `pacman-mirrorlist` package gets upgraded (ie. new mirrors get added) we use `reflector` to test the mirror speed and protocol to obtain a new ordered mirrorlist.
+
+NOTE: The above script depends on `reflector` so be sure to have it installed as described above.
 
 ### Terminal preference
 See the [zsh n00b guide](http://eli5.it/linux/tooling/zsh)
@@ -449,6 +473,10 @@ Simply reboot and enjoy your new NetworkManager
 ---
 
 ## DOCUMENT HISTORY:
+***09-25-2018***
+
+- Added useful Pacman hook for testing the new entries in `pacman-mirrorlist` according to predefined criterea. Credits: [Tead](https://github.com/Tead).
+
 ***08-23-2018***
 
 - Swapped out `Yaourt` in favor of `Aurman`. It is no longer recommended to use Yaourt as your package manager since it hasn't received updates or security review in a very long time.
