@@ -1,7 +1,7 @@
 +++
 date = "2017-01-10T00:14:35+01:00"
 lastMod = "2018-09-25T00:14:06+01:00"
-title = "[UPDATED] arch linux n00b guide"
+title = "[UPDATED] Arch Linux n00b guide"
 draft = false
 categories = ["Linux"]
 series = ["Install guides"]

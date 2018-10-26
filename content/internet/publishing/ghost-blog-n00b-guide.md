@@ -1,7 +1,7 @@
 +++
 date = "2017-03-28T13:55:27+02:00"
 lastMod = "2018-08-23T00:10:12+01:00"
-title = "[OUTDATED] ghost blog n00b guide"
+title = "[OUTDATED] Ghost blog n00b guide"
 draft = false
 
 +++

@@ -16,6 +16,11 @@ copyright = "Creative Commons Attribution 4.0 International"
   weight = 0
   pre    = ""
 [[menu.main]]
+  name   = "Devops"
+  url    = "/categories/devops"
+  weight = 0
+  pre    = ""
+[[menu.main]]
   name   = "Install Guides"
   url    = "/series/install guides"
   weight = 0
