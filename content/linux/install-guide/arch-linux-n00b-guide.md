@@ -172,26 +172,15 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 export LANG=en_US.UTF-8
 ```
 
-Enabling Multilib and AUR repos
+Enabling the AUR repo
 ```
 nano /etc/pacman.conf
 ```
 
-Scroll down and uncomment these lines:
-
-`[multilib]
-Include = /etc/pacman.d/mirrorlist`
-
-
-And add these lines at the bottom of the file:  
+Add these lines at the bottom of the file:  
 `[archlinuxfr]`  
 `SigLevel = Never`  
 `Server = https://repo.archlinux.fr/$arch`
-
-Update the repos's
-```
-pacman -Syu
-```
 
 ### User Management
 #### Set root password
@@ -247,7 +236,7 @@ bootctl install
 
 Write long UUID to file for later use
 ```
-blkid | grep sda2 | cut -f2 -d\" > /boot/loader/entries/arch.conf
+blkid | grep sda2 | cut -f2 -d\" >> /boot/loader/entries/arch.conf
 ```
 
 Create an entry for Arch
@@ -319,13 +308,17 @@ sudo pacman -S xf86-input-synaptics
 ```
 sudo pacman -S gnome gdm
 sudo systemctl enable gdm.service
-sudo pacman -S gnome-tweak-tool gnome-keyring
+sudo pacman -S gnome-tweaks gnome-keyring
 ```
 
 ### Installing a AUR helper
 In Arch we have a great asset that is the Arch User Respository (AUR). Here we can find all kinds of user maintained packages that would otherwise be quite hard to install. Using an AUR helper makes installing packages from the AUR as easy as Pacman for instance. Let's install my favorite one, aurman!
 ```
+gpg --recv-keys 465022E743D71E39
+```
+```
 git clone https://github.com/polygamma/aurman.git
+```
 cd aurman && makepkg -si
 ```
 
@@ -473,6 +466,12 @@ Simply reboot and enjoy your new NetworkManager
 ---
 
 ## DOCUMENT HISTORY:
+***12-04-2018***
+
+- I no longer encourage the use of MultiLib.
+
+- Added a step to fetch and install the Aurman signature.
+
 ***09-25-2018***
 
 - Added useful Pacman hook for testing the new entries in `pacman-mirrorlist` according to predefined criterea. Credits: [Tead](https://github.com/Tead).
