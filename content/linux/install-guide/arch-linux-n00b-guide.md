@@ -319,6 +319,7 @@ gpg --recv-keys 465022E743D71E39
 ```
 git clone https://github.com/polygamma/aurman.git
 ```
+```
 cd aurman && makepkg -si
 ```
 
