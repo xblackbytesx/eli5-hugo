@@ -193,6 +193,8 @@ passwd
 
 ```
 useradd -m -g users -G wheel,storage,power -s /bin/bash <user>
+```
+```
 passwd <user>
 ```
 
@@ -201,7 +203,6 @@ passwd <user>
 ```
 EDITOR=nano visudo
 ```
-
 
 Uncomment this line:
 `%wheel ALL=(ALL) ALL`
@@ -299,20 +300,16 @@ Congratulations! You are now booted into your new Arch system. As you've noticed
 sudo pacman -S mesa xorg-server xorg-xinit xorg-twm xorg-xclock
 ```
 
-On laptops with touchpad:
-```
-sudo pacman -S xf86-input-synaptics
-```
-
 ### Install awesome GUI stuff
 ```
-sudo pacman -S gnome gdm
+sudo pacman -S gnome gdm gnome-tweaks chrome-gnome-shell gnome-keyring
+```
+```
 sudo systemctl enable gdm.service
-sudo pacman -S gnome-tweaks gnome-keyring
 ```
 
 ### Installing a AUR helper
-In Arch we have a great asset that is the Arch User Respository (AUR). Here we can find all kinds of user maintained packages that would otherwise be quite hard to install. Using an AUR helper makes installing packages from the AUR as easy as Pacman for instance. Let's install my favorite one, aurman!
+In Arch we have a great asset that is the Arch User Respository (AUR). Here we can find all kinds of user maintained ~~packages~~ build-scripts that would otherwise be quite hard to install. Using an AUR helper makes installing packages from the AUR as easy as Pacman for instance. Let's install my favorite one, Aurman!
 ```
 gpg --recv-keys 465022E743D71E39
 ```
@@ -326,6 +323,8 @@ cd aurman && makepkg -si
 ### Installing and enabling a Firewall
 ```
 sudo pacman -S ufw
+```
+```
 sudo ufw enable
 ```
 
@@ -333,11 +332,9 @@ sudo ufw enable
 ```
 sudo pacman -S openssh
 ```
-
 ```
 sudo systemctl start sshd.socket
 ```
-
 ```
 sudo systemctl enable sshd.socket
 ```
@@ -355,7 +352,10 @@ sudo systemctl enable NetworkManager.service
 
 ### Install some funky themes
 ```
-aurman -S adapta-gtk-theme-git paper-icon-theme-git
+sudo pacman -S adapta-gtk-theme
+```
+```
+aurman -S paper-icon-theme-git
 ```
 
 ### Install some awesome packages
@@ -367,9 +367,8 @@ sudo pacman -S file-roller vlc vim git keepassxc reflector jdk8-openjdk
 ```
 gpg --recv-key 0x61B7B526D98F0353
 ```
-
 ```
-aurman -S chrome-gnome-shell-git firefox-nightly
+aurman -S firefox-nightly
 ```
 
 ### Install some support libraries
@@ -382,13 +381,16 @@ Enable minimal media codecs
 sudo pacman -S gstreamer gst-plugins-good gst-plugins-ugly
 ```
 
+
+## After install stuff [Optional]:
+
 ### Install some nifty little package installers (Flatpak vs Snap.. FIGHT!)
 ```
 sudo pacman -S flatpak  
+```
+```
 aurman -S snapd
 ```
-
-## After install stuff [Optional]:
 
 ### Pacman hooks
 Install a Pacman hook to update the mirrorlist to specified criterea upon upgrading the `pacman-mirrorlist` package.
@@ -467,6 +469,12 @@ Simply reboot and enjoy your new NetworkManager
 ---
 
 ## DOCUMENT HISTORY:
+***12-12-2018***
+
+- I no longer recommend to install the synaptics-touch driver since the built-in support now exceeds the performance and configuration options of the third-party integration. It just gets in the way of libinput.
+
+- More logical bundling of package installations and some more consistent use of code blocks. One command per block is my stride.
+
 ***12-04-2018***
 
 - I no longer encourage the use of MultiLib.
