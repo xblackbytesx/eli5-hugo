@@ -38,3 +38,8 @@ To clean the entire cache run this (be careful with this one):
 ```
 sudo pacman -Scc
 ```
+
+## Removing unused packages (orphans)
+```
+pacman -Rns $(pacman -Qtdq)
+```
